@@ -1,3 +1,4 @@
+import { ConnectDbService } from './../connect-db.service';
 import { CustonFormValidations } from './../custon-form-validations.service';
 import { Router, RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -10,10 +11,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./sign-up-page.component.css']
 })
 export class SignUpPageComponent implements OnInit {
+  resgisterValidationMessage: string;
   signUpForm: FormGroup;
   passwordType: string;
 
-  constructor() { 
+  constructor(public connectDbService: ConnectDbService,public router:Router) { 
     this.passwordType = 'weak';
   }
 
@@ -76,5 +78,26 @@ export class SignUpPageComponent implements OnInit {
     }
 
     this.passwordType = 'weak';
+  }
+  signUpEventHandler() {
+    var user = { email: this.signUpForm.value.email, password: this.signUpForm.value.password, name:this.signUpForm.value.name }
+    console.log("signUpevent")
+    this.connectDbService.doRegisterUser(user).subscribe((data) => {
+      console.log("validation")
+      console.log(data);
+      var tempObj: any = data["message"]
+
+      if (tempObj == true) {
+        this.resgisterValidationMessage = "Succesful"
+        this.router.navigateByUrl('/login');
+      }
+      else {
+        this.resgisterValidationMessage = "Email already exists";
+      }
+
+    }, (err) => {
+      console.log(err);
+    });
+
   }
 }

@@ -58,10 +58,11 @@
                     Password do not match
             </div>
         </div>
-        <button class="btn btn-primary btn-block" type="submit" [disabled]="!signUpForm.valid">
+        <button class="btn btn-primary btn-block" type="submit" [disabled]="!signUpForm.valid" (click)="signUpEventHandler()">
             <i class="fa fa-user-plus"></i>
              Sign Up
         </button>
+        <h6  class ="mt-2" style="margin-left: 30%;">{{resgisterValidationMessage}}</h6>
         <a href="#" id="cancel_signup">
             <i class="fa fa-angle-left"></i>
             Back

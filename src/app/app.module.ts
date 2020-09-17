@@ -1,5 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
+import { ConnectDbService } from './connect-db.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+ 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,9 +28,10 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ConnectDbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
