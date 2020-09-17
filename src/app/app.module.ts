@@ -7,13 +7,19 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { ForgotPasswordPageComponent} from './forgot-password-page/forgot-password-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomePageComponent } from './home-page/home-page.component';
+import { DisplayPageComponent } from './display-page/display-page.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     SignUpPageComponent,
-    ForgotPasswordPageComponent
+    ForgotPasswordPageComponent,
+    HomePageComponent,
+    DisplayPageComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
