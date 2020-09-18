@@ -7,7 +7,7 @@ var userRoute = require("./routes/userRoute")
 var signUpRoute = require("./routes/signUpRoute")
 var productRoute = require("./routes/productRoute")
 var cartRoute =require("./routes/cartRoute")
- 
+var cartRouteRetrive = require("./routes/cartRouteRetrive") 
  
 var app=express();
 var PORT =3000;
@@ -20,7 +20,7 @@ app.use("/api/login",userRoute);
 app.use("/api/signUp",signUpRoute);
 app.use("/api/products",productRoute);
 app.use("/api/home",cartRoute);
- 
+app.use("/api/cart",cartRouteRetrive) 
 
 app.listen(PORT,(err)=>{
     if(!err)

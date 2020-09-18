@@ -1,4 +1,4 @@
-import { environment } from './../environments/environment';
+ import { environment } from './../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 @Injectable({
@@ -33,6 +33,12 @@ export class ConnectDbService {
   getAllProducts()
   {
     var myServerUrl =this.myBaseServerUrl+"/api/products";
+    return this.httpClient.get(myServerUrl);
+  }
+  getCart()
+  {
+    var myServerUrl =this.myBaseServerUrl+"/api/cart";
+    console.log(this.httpClient.get(myServerUrl))
     return this.httpClient.get(myServerUrl);
   }
 }

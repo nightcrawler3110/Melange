@@ -93,7 +93,9 @@
                             <div class="card-body">
                                 <p class="card-title ml-4"><span style="font-weight: bold;">{{product.name}}</span> Rs
                                     {{product.price}}/-</p>
-                                <p> <a><span class="fa fa-shopping-bag ml-5"></span></a><span class="fa fa-heart ml-5"
+                                <p> <a
+                                        (click)="addToBagEventHandler(product.id,product.image,product.name,product.type,product.price)"><span
+                                            class="fa fa-shopping-bag ml-5"></span></a><span class="fa fa-heart ml-5"
                                         style="color: red;"></span></p>
                             </div>
                         </div>
@@ -116,7 +118,9 @@
                             <div class="card-body">
                                 <p class="card-title ml-4"><span style="font-weight: bold;">{{product.name}}</span> Rs
                                     {{product.price}}/-</p>
-                                <p> <a><span class="fa fa-shopping-bag ml-5"></span></a><span class="fa fa-heart ml-5"
+                                <p> <a
+                                        (click)="addToBagEventHandler(product.id,product.image,product.name,product.type,product.price)"><span
+                                            class="fa fa-shopping-bag ml-5"></span></a><span class="fa fa-heart ml-5"
                                         style="color: red;"></span></p>
                             </div>
                         </div>
@@ -127,7 +131,7 @@
     </div>
 
     <h3 class="mt-4">Trending in Footear</h3>
-      
+
     <div class="row">
         <div class="card-deck mt-4">
             <div *ngFor="let product of productsArray">
@@ -139,7 +143,9 @@
                             <div class="card-body">
                                 <p class="card-title ml-4"><span style="font-weight: bold;">{{product.name}}</span> Rs
                                     {{product.price}}/-</p>
-                                <p> <a (click)="addToBagEventHandler(product.id,product.image,product.name,product.type,product.price)"><span class="fa fa-shopping-bag ml-5"></span></a><span class="fa fa-heart ml-5"
+                                <p> <a
+                                        (click)="addToBagEventHandler(product.id,product.image,product.name,product.type,product.price)"><span
+                                            class="fa fa-shopping-bag ml-5"></span></a><span class="fa fa-heart ml-5"
                                         style="color: red;"></span></p>
                             </div>
                         </div>

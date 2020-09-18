@@ -10,9 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-   productsArray: Products[] = new Array();
-   additionToCart="";
-  constructor(public connectDbService:ConnectDbService, public manageLoginService:ManageLoginService,public router:Router) { }
+  productsArray: Products[] = new Array();
+  constructor(public connectDbService: ConnectDbService, public manageLoginService: ManageLoginService, public router: Router) { }
 
   ngOnInit(): void {
 
@@ -24,35 +23,30 @@ export class HomePageComponent implements OnInit {
       console.log(err);
     })
   }
-  addToBagEventHandler(id,image,name,type,price)
-  {
-    if(this.manageLoginService.email=="")
-    {
-          this.router.navigateByUrl('/login');
+  addToBagEventHandler(id, image, name, type, price) {
+    if (this.manageLoginService.email == "") {
+      this.router.navigateByUrl('/login');
     }
-    else
-    {
-      var cart ={email:this.manageLoginService.email,id:id,name:name,type:type,price:price}
+    else {
+      var cart = { email: this.manageLoginService.email, id: id, name: name, type: type, price: price, image:image }
       console.log(cart);
       this.connectDbService.doCartAddition(cart).subscribe((data) => {
-        
+
         console.log(data);
         var tempObj: any = data["message"]
-  
+
         if (tempObj == true) {
-          
-          console.log(cart);
-          
+          alert("Successfully Added to Cart")
         }
-         
-  
+
+
       }, (err) => {
         console.log(err);
       });
-  
-  
-    }
+
+
     }
   }
-    
+}
+
 

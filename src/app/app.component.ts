@@ -22,6 +22,18 @@ export class AppComponent {
       this.router.navigateByUrl('/wishlist')
     }
   }
+  cartEventHandler()
+  {
+    if(this.manageLoginService.email=="")
+    {
+            this.router.navigateByUrl('/login')
+    }
+    else
+    {
+      console.log(this.manageLoginService.email)
+      this.router.navigateByUrl('/cart')
+    }
+  }
   homePageEventHandler()
   {
     this.router.navigateByUrl('/home')
