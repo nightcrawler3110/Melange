@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { ManageLoginService } from './manage-login.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'melange';
+  constructor(public manageLoginService :ManageLoginService,public router:Router) {}
+  wishlistEventHandler()
+  {
+    if(this.manageLoginService.email=="")
+    {
+            this.router.navigateByUrl('/login')
+    }
+    else
+    {
+      console.log(this.manageLoginService.email)
+      this.router.navigateByUrl('/wishlist')
+    }
+  }
+  homePageEventHandler()
+  {
+    this.router.navigateByUrl('/home')
+  }
 }

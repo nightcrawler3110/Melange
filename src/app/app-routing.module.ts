@@ -1,3 +1,5 @@
+import { CartPageComponent } from './cart-page/cart-page.component';
+import { WishlistPageComponent } from './wishlist-page/wishlist-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { DisplayPageComponent } from './display-page/display-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path: "home", component:HomePageComponent},
   {path:"display",component:DisplayPageComponent},
   {path: "profile",component:ProfilePageComponent},
+  {path: "wishlist", component:WishlistPageComponent},
+  {path:"cart",component:CartPageComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 

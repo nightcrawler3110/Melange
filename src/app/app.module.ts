@@ -1,7 +1,9 @@
+import { ManageLoginService } from './manage-login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ConnectDbService } from './connect-db.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+ 
  
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
 import { DisplayPageComponent } from './display-page/display-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
+import { WishlistPageComponent } from './wishlist-page/wishlist-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     ForgotPasswordPageComponent,
     HomePageComponent,
     DisplayPageComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    CartPageComponent,
+    WishlistPageComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ConnectDbService],
+  providers: [ConnectDbService,ManageLoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

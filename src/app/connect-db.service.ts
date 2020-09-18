@@ -6,14 +6,14 @@ import { HttpClient} from '@angular/common/http';
 })
 export class ConnectDbService {
   myBaseServerUrl =environment.serverUrl;
-
   constructor(public httpClient:HttpClient) { }
   doUserValidation(obj)
   {
+       
     console.log(this.myBaseServerUrl)
     var myServerUrl =this.myBaseServerUrl + "/api/login";
     console.log(myServerUrl);
-    return this.httpClient.post(myServerUrl,obj);
+    return this.httpClient.post(myServerUrl,obj)
   }
   doRegisterUser(obj)
   {
@@ -22,5 +22,17 @@ export class ConnectDbService {
     console.log(myServerUrl);
     return this.httpClient.post(myServerUrl,obj);
   }
+  doCartAddition(obj)
+  {
 
+    var myServerUrl =this.myBaseServerUrl + "/api/home";
+    console.log("Yes its comming in connectDb",myServerUrl);
+    console.log(this.httpClient.post(myServerUrl,obj))
+    return this.httpClient.post(myServerUrl,obj);
+  }
+  getAllProducts()
+  {
+    var myServerUrl =this.myBaseServerUrl+"/api/products";
+    return this.httpClient.get(myServerUrl);
+  }
 }

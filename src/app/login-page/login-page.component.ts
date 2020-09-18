@@ -1,3 +1,4 @@
+import { ManageLoginService } from './../manage-login.service';
 import { ConnectDbService } from './../connect-db.service';
 import { CustonFormValidations } from './../custon-form-validations.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,7 @@ export class LoginPageComponent implements OnInit {
   userValidationFailMessage: string;
   loginForm:FormGroup;
 
-  constructor(public router: Router,public connectDbService:ConnectDbService) { }
+  constructor(public router: Router,public connectDbService:ConnectDbService,public manageLoginService: ManageLoginService) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -30,6 +31,7 @@ export class LoginPageComponent implements OnInit {
       var tempObj: any = data["message"]
 
       if (tempObj == true) {
+        this.manageLoginService.saveEmail(this.loginForm.value.email);
         this.router.navigateByUrl('/home');
       }
       else {
