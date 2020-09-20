@@ -8,7 +8,7 @@ var signUpRoute = require("./routes/signUpRoute")
 var productRoute = require("./routes/productRoute")
 var cartRoute =require("./routes/cartRoute")
 var cartRouteRetrive = require("./routes/cartRouteRetrive") 
- 
+var productAllRoute=require("./routes/productAllRoute"); 
 var app=express();
 var PORT =3000;
  
@@ -18,7 +18,8 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(cors());
 app.use("/api/login",userRoute);
 app.use("/api/signUp",signUpRoute);
-app.use("/api/products",productRoute);
+app.use("/api/productsHome",productRoute);
+app.use("/api/products",productAllRoute)
 app.use("/api/home",cartRoute);
 app.use("/api/cart",cartRouteRetrive) 
 

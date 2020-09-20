@@ -18,8 +18,8 @@ export class CartPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-     
-    this.connectDbService.getCart().subscribe((data) => {
+    var obj ={email:this.manageLoginService.email} 
+    this.connectDbService.getCart(obj).subscribe((data) => {
       
     this.cartArray = data as cartProducts[];
     console.log("the array of data we got in cartpage",this.cartArray);

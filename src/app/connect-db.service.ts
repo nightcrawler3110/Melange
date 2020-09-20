@@ -30,15 +30,19 @@ export class ConnectDbService {
     console.log(this.httpClient.post(myServerUrl,obj))
     return this.httpClient.post(myServerUrl,obj);
   }
-  getAllProducts()
+  getAllProductsHome()
   {
-    var myServerUrl =this.myBaseServerUrl+"/api/products";
+    var myServerUrl =this.myBaseServerUrl+"/api/productsHome";
     return this.httpClient.get(myServerUrl);
   }
-  getCart()
+  getAllProducts(obj)
+  {
+    var myServerUrl =this.myBaseServerUrl+"/api/products";
+    return this.httpClient.post(myServerUrl,obj);
+  }
+  getCart(obj)
   {
     var myServerUrl =this.myBaseServerUrl+"/api/cart";
-    console.log(this.httpClient.get(myServerUrl))
-    return this.httpClient.get(myServerUrl);
+    return this.httpClient.post(myServerUrl,obj);
   }
 }

@@ -21,7 +21,7 @@ function addProductToCart(req, res) {
                 else {
                     console.log("error3")
                     var productToBeInserted = req.body;
-                    coll.insertOne({email:productToBeInserted.email, id: productToBeInserted.id, image: productToBeInserted.image, name: productToBeInserted.name, type: productToBeInserted.type, price: productToBeInserted.price }, (err, result) => {
+                    coll.insertOne({email:productToBeInserted.email,size:productToBeInserted.size, id: productToBeInserted.id, image: productToBeInserted.image, name: productToBeInserted.name, type: productToBeInserted.type, price: productToBeInserted.price }, (err, result) => {
                         if (err) {
                             console.log("error4")
                             res.status(500);

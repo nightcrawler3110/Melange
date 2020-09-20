@@ -1,3 +1,8 @@
+import { OffersPageComponent } from './offers-page/offers-page.component';
+import { AccessoriesPageComponent } from './accessories-page/accessories-page.component';
+import { KidsPageComponent } from './kids-page/kids-page.component';
+import { WomenPageComponent } from './women-page/women-page.component';
+import { MenPageComponent } from './men-page/men-page.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { WishlistPageComponent } from './wishlist-page/wishlist-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
@@ -16,6 +21,11 @@ const routes: Routes = [
   {path: "home", component:HomePageComponent},
   {path:"display",component:DisplayPageComponent},
   {path: "profile",component:ProfilePageComponent},
+  {path: "men", component:MenPageComponent},
+  {path: "women", component:WomenPageComponent},
+  {path:"kids", component:KidsPageComponent},
+  {path:"accessories",component:AccessoriesPageComponent},
+  {path: "offers", component:OffersPageComponent},
   {path: "wishlist", component:WishlistPageComponent},
   {path:"cart",component:CartPageComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}

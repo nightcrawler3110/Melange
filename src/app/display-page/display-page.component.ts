@@ -1,15 +1,57 @@
+import { ConnectDbService } from './../connect-db.service';
+import { ManageLoginService } from './../manage-login.service';
+import { Router } from '@angular/router';
+import { ManageProductDisplayService } from './../manage-product-display.service';
+import { Products } from './../products';
 import { Component, OnInit } from '@angular/core';
-
+ 
 @Component({
   selector: 'app-display-page',
   templateUrl: './display-page.component.html',
   styleUrls: ['./display-page.component.css']
 })
 export class DisplayPageComponent implements OnInit {
-
-  constructor() { }
-
+  product;
+  displayProductSize:string;
+  constructor(public manageProductDisplayService:ManageProductDisplayService,public router:Router,public manageLoginService:ManageLoginService, public connectDbService:ConnectDbService) {
+    this.showProduct() ;
+    this.displayProductSize="M"
+   }
+   showProduct()
+   {
+     this.product=this.manageProductDisplayService.product;
+     console.log(this.product);
+   }
   ngOnInit(): void {
+     
+      
+  }
+  
+  addToBagEventHandler(id,name,price,image,type) {
+    if (this.manageLoginService.email == "") {
+      this.router.navigateByUrl('/login');
+    }
+    else {
+      var size=this.displayProductSize;
+      console.log("size",size);
+      var cart = {size:size,email: this.manageLoginService.email, id: id, name: name, type: type, price: price, image:image }
+      console.log(cart);
+      this.connectDbService.doCartAddition(cart).subscribe((data) => {
+
+        console.log(data);
+        var tempObj: any = data["message"]
+
+        if (tempObj == true) {
+          alert("Successfully Added to Cart")
+        }
+
+
+      }, (err) => {
+        console.log(err);
+      });
+
+
+    }
   }
 
 }

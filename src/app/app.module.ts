@@ -1,3 +1,4 @@
+import { ManageProductDisplayService } from './manage-product-display.service';
 import { ManageLoginService } from './manage-login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ConnectDbService } from './connect-db.service';
@@ -17,6 +18,11 @@ import { DisplayPageComponent } from './display-page/display-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { WishlistPageComponent } from './wishlist-page/wishlist-page.component';
+import { MenPageComponent } from './men-page/men-page.component';
+import { WomenPageComponent } from './women-page/women-page.component';
+import { KidsPageComponent } from './kids-page/kids-page.component';
+import { OffersPageComponent } from './offers-page/offers-page.component';
+import { AccessoriesPageComponent } from './accessories-page/accessories-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,12 @@ import { WishlistPageComponent } from './wishlist-page/wishlist-page.component';
     DisplayPageComponent,
     ProfilePageComponent,
     CartPageComponent,
-    WishlistPageComponent
+    WishlistPageComponent,
+    MenPageComponent,
+    WomenPageComponent,
+    KidsPageComponent,
+    OffersPageComponent,
+    AccessoriesPageComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +48,7 @@ import { WishlistPageComponent } from './wishlist-page/wishlist-page.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ConnectDbService,ManageLoginService],
+  providers: [ConnectDbService,ManageLoginService,ManageProductDisplayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

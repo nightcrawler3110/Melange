@@ -2,7 +2,7 @@ var mongoClient = require("mongodb").MongoClient;
 var mongodbUrl = "mongodb://localhost:27017/";
 
 
-function getProductFromCart(req, res) {
+function getProducts(req, res) {
     mongoClient.connect(mongodbUrl, (err, dbHost) => {
         if (err) {
             res.status(500);
@@ -10,14 +10,14 @@ function getProductFromCart(req, res) {
         }
         else {
             var db = dbHost.db("slDbMean");
-            db.collection("cart", (err, coll) => {
+            db.collection("productsAll", (err, coll) => {
                 if (err) {
                     res.status(500);
                     res.json({ message: "Not able to connect to connection" })
                 }
                 else {
-                       var user =req.body;
-                    coll.find({email:user.email}).toArray((err, data) => {
+                       var prod =req.body;
+                    coll.find({type:prod.type}).toArray((err, data) => {
                         if (err) {
                             res.status(500);
                             res.json({ message: "Error connecting to the mongodb server" });
@@ -34,4 +34,4 @@ function getProductFromCart(req, res) {
 }
 
 
-module.exports = { getProductFromCart };
+module.exports = { getProducts };

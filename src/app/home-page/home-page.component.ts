@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.connectDbService.getAllProducts().subscribe((data) => {
+    this.connectDbService.getAllProductsHome().subscribe((data) => {
       console.log(data);
       this.productsArray = data as Products[];
       console.log(this.productsArray[0].image);

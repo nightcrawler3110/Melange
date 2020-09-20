@@ -1,28 +1,57 @@
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-6 mb-4">
-            <img src="../../assets/Indian4.JPG" class="img-fluid mb-4 mt-4"
-                style="height: 400px; border: 2px solid black;">
+  <div class="card">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-6">
+
+          <div class="preview-pic tab-content">
+            <div class="tab-pane active" id="pic-1" style="height:400px;width:400px"><img src={{product.image}} /></div>
+            <div class="tab-pane" id="pic-2" style="height:400px;width:400px"><img src={{product.imagea}} /></div>
+            <div class="tab-pane" id="pic-3" style="height:400px;width:400px"><img src={{product.imageb}} /></div>
+            <div class="tab-pane" id="pic-4" style="height:400px;width:400px"><img src={{product.imagec}} /></div>
+          </div>
+          <ul class="preview-thumbnail nav nav-tabs">
+            <li class="active" style="height:80px;width:80px"><a data-target="#pic-1" data-toggle="tab"><img
+                  src={{product.image}} /></a></li>
+            <li style="height:80px;width:80px"><a data-target="#pic-2" data-toggle="tab"><img
+                  src={{product.imagea}} /></a></li>
+            <li style="height:80px;width:80px"><a data-target="#pic-3" data-toggle="tab"><img
+                  src={{product.imageb}} /></a></li>
+            <li style="height:80px;width:80px"><a data-target="#pic-4" data-toggle="tab"><img
+                  src={{product.imagec}} /></a></li>
+          </ul>
+
         </div>
-
-        <div class="col-sm-12 col-md-6 mb-4 mt-4">
-            <p style="font-weight: bold; font-size: 50px;">Manyavar</p>
-            <p style="font-weight: bold; font-size: 30px;">Rs 2199/-</p>
-            <p style="color: green; margin-top: -10px; padding-top: -10px;">Taxes Excluded</p>
-            <p style="color: red;">Select Size</p>
-            <div class="radio" style="margin-top: -10px;">
-                <label><input type="radio" name="optradio"> S</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="optradio"> M</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="optradio"> L</label>
-              </div>
-              <button class="button">Add to Bag</button>
-              <button class="button">Wishlist</button>
-         </div>
-         
+        <div class="details col-md-6">
+          <h3 class="product-title">{{product.name}}</h3>
+          <div class="rating">
+            <div class="stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>
+            <span class="review-no">41 reviews</span>
+          </div>
+          <p class="product-description">{{product.description}}</p>
+          <h4 class="price">current price: <span>Rs {{product.price}}/-</span></h4>
+          <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+          <h5 class="sizes">Select Size</h5>
+          <div class="form-group">
+            <select class="form-control" [(ngModel)]="displayProductSize"  id="size">
+              <option  value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+            <div class="action">
+              <button class="add-to-cart btn btn-default mt-4" type="submit" (click)="addToBagEventHandler(product.id,product.name,product.price,product.image,product.type)"> add to cart</button>
+              <button class="like btn btn-default mt-4" type="button"><span class="fa fa-heart"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
+  </div>
 </div>
