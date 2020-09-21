@@ -3,7 +3,7 @@ var mongodbUrl = "mongodb://localhost:27017/";
 
 console.log("mongocon")
 
-function addProductToCart(req, res) {
+function deleteItem(req, res) {
     mongoClient.connect(mongodbUrl, (err, dbHost) => {
         if (err) {
             console.log("error1")
@@ -20,9 +20,9 @@ function addProductToCart(req, res) {
                 }
                 else {
                     console.log("error3")
-                    var productToBeInserted = req.body;
+                    var productToBeDeleted = req.body;
 
-                    coll.findOne({ email: productToBeInserted.email, id: productToBeInserted.id, size:productToBeInserted.size }, (err, result) => {
+                    coll.findOne({ email: productToBeDeleted.email, id: productToBeDeleted.id, size: productToBeDeleted.size }, (err, result) => {
                         if (err) {
                             res.status(500);
                             res.json({ message: err })
@@ -31,7 +31,7 @@ function addProductToCart(req, res) {
 
                             if (result) {
                                 res.status(200);
-                                coll.updateOne({ email: productToBeInserted.email, id: productToBeInserted.id,size:productToBeInserted.size }, { $inc: { quantity: 1 } }, (err, result) => {
+                                coll.deleteOne({ email: productToBeDeleted.email, id: productToBeDeleted.id, size: productToBeDeleted.size }, { $inc: { quantity: 1 } }, (err, result) => {
                                     if (err) {
                                         res.status(500);
                                         res.json({ message: err })
@@ -44,17 +44,7 @@ function addProductToCart(req, res) {
                             }
                             else {
                                 res.status(201);
-                                coll.insertOne({ quantity: productToBeInserted.quantity, email: productToBeInserted.email, size: productToBeInserted.size, id: productToBeInserted.id, image: productToBeInserted.image, name: productToBeInserted.name, type: productToBeInserted.type, price: productToBeInserted.price }, (err, result) => {
-                                    if (err) {
-                                        console.log("error4")
-                                        res.status(500);
-                                        res.json({ message: err })
-                                    }
-                                    else {
-                                        console.log("Yes Insertion Succesful")
-                                        res.json({ message: true })
-                                    }
-                                })
+                                res.json({ message: false })
 
                             }
 
@@ -67,4 +57,4 @@ function addProductToCart(req, res) {
 }
 
 
-module.exports = { addProductToCart };
+module.exports = { deleteItem };

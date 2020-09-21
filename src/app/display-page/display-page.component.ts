@@ -34,7 +34,7 @@ export class DisplayPageComponent implements OnInit {
     else {
       var size=this.displayProductSize;
       console.log("size",size);
-      var cart = {size:size,email: this.manageLoginService.email, id: id, name: name, type: type, price: price, image:image }
+      var cart = {size:size,quantity:1,email: this.manageLoginService.email, id: id, name: name, type: type, price: price, image:image }
       console.log(cart);
       this.connectDbService.doCartAddition(cart).subscribe((data) => {
 

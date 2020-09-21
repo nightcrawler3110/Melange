@@ -23,6 +23,7 @@ import { WomenPageComponent } from './women-page/women-page.component';
 import { KidsPageComponent } from './kids-page/kids-page.component';
 import { OffersPageComponent } from './offers-page/offers-page.component';
 import { AccessoriesPageComponent } from './accessories-page/accessories-page.component';
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AccessoriesPageComponent } from './accessories-page/accessories-page.co
     WomenPageComponent,
     KidsPageComponent,
     OffersPageComponent,
-    AccessoriesPageComponent
+    AccessoriesPageComponent,
+    CheckoutPageComponent
   ],
   imports: [
     BrowserModule,

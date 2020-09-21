@@ -1,3 +1,4 @@
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { OffersPageComponent } from './offers-page/offers-page.component';
 import { AccessoriesPageComponent } from './accessories-page/accessories-page.component';
 import { KidsPageComponent } from './kids-page/kids-page.component';
@@ -11,7 +12,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ForgotPasswordPageComponent } from './forgot-password-page/forgot-password-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
@@ -28,6 +29,8 @@ const routes: Routes = [
   {path: "offers", component:OffersPageComponent},
   {path: "wishlist", component:WishlistPageComponent},
   {path:"cart",component:CartPageComponent},
+  {path: "cartQ",component:CartPageComponent},
+  {path: "checkout", component:CheckoutPageComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
