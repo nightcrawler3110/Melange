@@ -10,7 +10,10 @@ var cartRoute =require("./routes/cartRoute")
 var cartRouteRetrive = require("./routes/cartRouteRetrive") 
 var productAllRoute=require("./routes/productAllRoute"); 
 var changeQuantityRoute= require("./routes/changeQuantityRoute")
-var deleteFromCartRoute = require("./routes/deleteFromCartRoute")
+var deleteFromCartRoute = require("./routes/deleteFromCartRoute");
+var orderRoute = require("./routes/orderRoute");
+var destroyCompleteCartRoute = require("./routes/destroyCompleteCartRoute")
+var displayOrderRoute = require("./routes/displayOrderRoute");
 var app=express();
 var PORT =3000;
  
@@ -26,6 +29,9 @@ app.use("/api/home",cartRoute);
 app.use("/api/cart",cartRouteRetrive) 
 app.use("/api/quantity",changeQuantityRoute);
 app.use("/api/delete",deleteFromCartRoute);
+app.use("/api/order",orderRoute);
+app.use("/api/destroy",destroyCompleteCartRoute);
+app.use("/api/displayOrder",displayOrderRoute);
 
 app.listen(PORT,(err)=>{
     if(!err)

@@ -24,6 +24,8 @@ import { KidsPageComponent } from './kids-page/kids-page.component';
 import { OffersPageComponent } from './offers-page/offers-page.component';
 import { AccessoriesPageComponent } from './accessories-page/accessories-page.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { OrderHistoryPageComponent } from './order-history-page/order-history-page.component';
+import { SuccessfulCheckoutPageComponent } from './successful-checkout-page/successful-checkout-page.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
     KidsPageComponent,
     OffersPageComponent,
     AccessoriesPageComponent,
-    CheckoutPageComponent
+    CheckoutPageComponent,
+    OrderHistoryPageComponent,
+    SuccessfulCheckoutPageComponent
   ],
   imports: [
     BrowserModule,

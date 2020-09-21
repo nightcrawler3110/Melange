@@ -1,3 +1,5 @@
+import { OrderHistoryPageComponent } from './order-history-page/order-history-page.component';
+import { SuccessfulCheckoutPageComponent } from './successful-checkout-page/successful-checkout-page.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { OffersPageComponent } from './offers-page/offers-page.component';
 import { AccessoriesPageComponent } from './accessories-page/accessories-page.component';
@@ -30,7 +32,9 @@ const routes: Routes = [
   {path: "wishlist", component:WishlistPageComponent},
   {path:"cart",component:CartPageComponent},
   {path: "cartQ",component:CartPageComponent},
+  {path: "successfull",component:SuccessfulCheckoutPageComponent},
   {path: "checkout", component:CheckoutPageComponent},
+  {path: "orders", component:OrderHistoryPageComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 

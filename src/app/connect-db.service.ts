@@ -55,4 +55,20 @@ export class ConnectDbService {
     var myServerUrl =this.myBaseServerUrl+"/api/delete";
     return this.httpClient.post(myServerUrl,obj);
   }
+  placeOrderStore(obj)
+  {
+    console.log(obj);
+    var myServerUrl =this.myBaseServerUrl+"/api/order";
+    return this.httpClient.post(myServerUrl,obj);
+  }
+  destroyCart(obj)
+  {
+    var myServerUrl =this.myBaseServerUrl+"/api/destroy";
+    return this.httpClient.post(myServerUrl,obj);
+  }
+  displayOrder(obj)
+  {
+    var myServerUrl =this.myBaseServerUrl+"/api/displayOrder";
+    return this.httpClient.post(myServerUrl,obj);
+  }
 }

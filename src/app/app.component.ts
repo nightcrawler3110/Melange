@@ -38,5 +38,17 @@ export class AppComponent {
   {
     this.router.navigateByUrl('/home')
   }
+  ordersEventHandler()
+  {
+    if(this.manageLoginService.email=="")
+    {
+        this.router.navigateByUrl('/login')
+    }
+    else
+    {
+      console.log(this.manageLoginService.email)
+      this.router.navigateByUrl('/orders')
+    }
+  }
 
 }

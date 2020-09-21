@@ -10,12 +10,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout-page.component.css']
 })
 export class CheckoutPageComponent implements OnInit {
+  date:Date;
   price:number;
   GSTprice:number;
  cartArray: cartProducts[] = new Array();
  constructor(public manageLoginService:ManageLoginService, public connectDbService: ConnectDbService,public router:Router) {
     this.price=0;
     this.GSTprice=0;
+    this.date= new Date;
   }
 
  
@@ -39,6 +41,16 @@ export class CheckoutPageComponent implements OnInit {
     }, (err) => {
       console.log(err);
     })
+  }
+  checkoutEventHandler(firstName,lastName,zip,address1,address2,cardNumber,cardName,cardCVV)
+  {
+    var obj = {date:this.date,email:this.manageLoginService.email,firstName:firstName,lastName:lastName,zip:zip,address1:address1,address2:address2,cardNumber:cardNumber,cardName:cardName,cardCVV:cardCVV,orderArray:this.cartArray}
+    console.log("checkout",obj);
+    this.connectDbService.placeOrderStore(obj).subscribe((data) => {
+      this.router.navigateByUrl('/successfull');
+      }, (err) => {
+        console.log(err);
+      })
   }
 
 }

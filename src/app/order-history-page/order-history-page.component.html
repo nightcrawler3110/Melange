@@ -1,0 +1,26 @@
+<div class="container bootdey">
+    <div class="panel panel-default panel-order">
+        <div class="panel-heading text-center" >
+            <strong style=" font-size: 50px;">Order history</strong>
+        </div>
+
+        <div class="panel-body">
+            <div *ngFor="let orderElement of ordersArray">
+                <div *ngFor="let order of orderElement.orderArray">
+                    <div class="row">
+                        <div class="col-md-1"><img src={{order.image}} class="media-object"></div>
+                        <div class="col-md-11">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span><strong>{{order.name}}</strong></span>
+                                    <br>
+                                    Quantity : {{order.quantity}}, cost: Rs {{order.price}} <br>
+                                </div>
+                                <div class="col-md-12">
+                                    order made on: {{orderElement.date|date:'MMM d, y'}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

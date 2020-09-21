@@ -51,8 +51,19 @@ export class CartPageComponent implements OnInit {
   }
   setQuantity(obj, modifiedQuantity) {
     console.log(obj, modifiedQuantity);
+    
     for (var i = 0; i < this.cartArray.length; i++) {
       if (this.cartArray[i].id == obj.id) {
+        if(modifiedQuantity> obj.quantity)
+        {
+          this.price = this.price + obj.price 
+          this.GSTprice = this.price *1.18
+        }
+        else
+        {
+         this.price = this.price - obj.price 
+         this.GSTprice = this.price *1.18
+        }
         this.cartArray[i].quantity = modifiedQuantity;
         break;
       }
@@ -60,6 +71,8 @@ export class CartPageComponent implements OnInit {
   }
   deleteItemEventHandler(obj) {
 
+    this.price = this.price - (obj.price*obj.quantity)
+    this.GSTprice = this.price*1.18;
     this.connectDbService.deleteFromCart(obj).subscribe((data) => {
       if(this.router.url=='/cart')
       {
