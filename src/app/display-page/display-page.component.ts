@@ -12,10 +12,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayPageComponent implements OnInit {
   product;
+  usertype;
   displayProductSize:string;
   constructor(public manageProductDisplayService:ManageProductDisplayService,public router:Router,public manageLoginService:ManageLoginService, public connectDbService:ConnectDbService) {
     this.showProduct() ;
     this.displayProductSize="M"
+    this.usertype= this.manageLoginService.type;
    }
    showProduct()
    {
@@ -66,6 +68,20 @@ export class DisplayPageComponent implements OnInit {
         console.log(err);
       })
     }
+  }
+  deleteProductEventHandler(id)
+  {
+    var obj ={id:id};
+    this.connectDbService.deleteProduct(obj).subscribe((data)=>{
+      var tempObj:any = data["message"]  ;
+      if (tempObj==true){ 
+    this.router.navigateByUrl('/home') ;
+      }
+    },(err)=>{
+  
+    }) ;
+    
+
   }
 
 }

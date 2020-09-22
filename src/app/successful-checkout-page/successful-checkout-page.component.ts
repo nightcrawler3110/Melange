@@ -1,3 +1,4 @@
+import { OrderServiceService } from './../order-service.service';
 import { Router } from '@angular/router';
 import { ManageLoginService } from './../manage-login.service';
 import { ConnectDbService } from './../connect-db.service';
@@ -10,7 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuccessfulCheckoutPageComponent implements OnInit {
    date:Date;
-  constructor(public router:Router, public connectDbService:ConnectDbService, public manageLoginService:ManageLoginService) {
+   order:any;
+  constructor(public orderService:OrderServiceService ,public router:Router, public connectDbService:ConnectDbService, public manageLoginService:ManageLoginService) {
     this.date = new Date;
     this.date.setDate(this.date.getDate() + 7)
    }
@@ -19,7 +21,7 @@ export class SuccessfulCheckoutPageComponent implements OnInit {
     var obj = {email:this.manageLoginService.email}
     this.connectDbService.destroyCart(obj).subscribe((data) => {
       console.log("Done Deletion")
-      
+      this.order= this.orderService.order;
       }, (err) => {
         console.log(err);
       })

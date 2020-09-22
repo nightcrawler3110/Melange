@@ -55,5 +55,21 @@ export class AppComponent {
     this.manageLoginService.saveEmail("");
     this.router.navigateByUrl('/home')
   }
+  adminEventHandler()
+  {
+    if(this.manageLoginService.email=="")
+    {
+            this.router.navigateByUrl('/login')
+    }
+    else if(this.manageLoginService.type=="")
+    {
+          
+    }
+    else
+    {
+      console.log(this.manageLoginService.email)
+      this.router.navigateByUrl('/admin')
+    }
+  }
 
 }

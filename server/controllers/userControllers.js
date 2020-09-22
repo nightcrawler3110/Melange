@@ -26,7 +26,26 @@ function checkUser(req, res) {
 
                             if (result) {
                                 res.status(200);
-                                res.json({ message: true })
+                                coll.findOne({email: userToBeChecked.email, password: userToBeChecked.password, type:"admin" }, (err, result) => {
+                                    if (err) {
+                                        res.status(500);
+                                        res.json({ message: err })
+                                    }
+                                    else {
+            
+                                        if (result) {
+                                            res.status(200);
+                                            
+                                            res.json({ message: "admin" })
+                                        }
+                                        else
+                                        {
+                                            res.json({ message: "user" })
+                                        }
+                                         
+            
+                                    }
+                                })
                             }
                             else {
                                 res.status(201);

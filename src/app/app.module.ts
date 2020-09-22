@@ -1,3 +1,4 @@
+import { OrderServiceService } from './order-service.service';
 import { ManageProductDisplayService } from './manage-product-display.service';
 import { ManageLoginService } from './manage-login.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -56,7 +57,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ConnectDbService,ManageLoginService,ManageProductDisplayService],
+  providers: [ConnectDbService,ManageLoginService,ManageProductDisplayService,OrderServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

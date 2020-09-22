@@ -1,1 +1,46 @@
-<p>admin-page works!</p>
+<form>
+    <div class="form-row mt-4">
+        <div class="form-group col-md-6">
+            <label for="name">Name</label>
+            <input type="text" #name class="form-control" id="name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="type">Type</label>
+            <input type="text" #type class="form-control" id="type">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Description">Description</label>
+            <input type="text" #description class="form-control" id="Description">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="id">Id</label>
+            <input type="text" #id class="form-control" id="id">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="price">Price</label>
+            <input type="text" #price class="form-control" id="price">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="image"> Main Image URL</label>
+            <input type="text" #image class="form-control" id="image">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="imagea">Second Image URL</label>
+            <input type="text" #imagea class="form-control" id="imagea">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="imageb">Third Image URL</label>
+            <input type="text" #imageb class="form-control" id="imageb">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="imagec">Fourth Image URL</label>
+            <input type="text"  #imagec class="form-control" id="imagec">
+        </div>
+      
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="addNewProductEventHandler(name.value,id.value,type.value,description.value,price.value,image.value,imagea.value,imageb.value,imagec.value)">Add New Item</button>
+
+ </form>
+ <div class="mt-1">
+     <h5 style="color: red;">Note: For deletion of a product, click on the particular product and then click on DELETE button</h5>
+ </div>

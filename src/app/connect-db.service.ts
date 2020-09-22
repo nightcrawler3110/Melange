@@ -86,4 +86,14 @@ export class ConnectDbService {
     var myServerUrl =this.myBaseServerUrl+"/api/deleteFromWishlist";
     return this.httpClient.post(myServerUrl,obj);
   }
+  addNewProduct(obj)
+  {
+    var myServerUrl =this.myBaseServerUrl+"/api/newProduct";
+    return this.httpClient.post(myServerUrl,obj);
+  }
+  deleteProduct(obj)
+  {
+    var myServerUrl =this.myBaseServerUrl+"/api/deleteProduct";
+    return this.httpClient.post(myServerUrl,obj);
+  }
 }

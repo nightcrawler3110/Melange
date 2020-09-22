@@ -30,9 +30,16 @@ export class LoginPageComponent implements OnInit {
       console.log(data);
       var tempObj: any = data["message"]
 
-      if (tempObj == true) {
+      if (tempObj == "user") {
         this.manageLoginService.saveEmail(this.loginForm.value.email);
         this.router.navigateByUrl('/home');
+      }
+      else if(tempObj == "admin")
+      {
+
+        this.manageLoginService.saveEmail(this.loginForm.value.email);
+        this.manageLoginService.saveType("admin")
+        this.router.navigateByUrl('/admin');
       }
       else {
         this.userValidationFailMessage = "Invalid";

@@ -1,3 +1,4 @@
+import { OrderServiceService } from './../order-service.service';
 import { cartProducts } from './../cartProduct';
 import { Router } from '@angular/router';
 import { ConnectDbService } from './../connect-db.service';
@@ -17,7 +18,7 @@ export class CheckoutPageComponent implements OnInit {
   price:number;
   GSTprice:number;
  cartArray: cartProducts[] = new Array();
- constructor(public manageLoginService:ManageLoginService, public connectDbService: ConnectDbService,public router:Router) {
+ constructor(public orderService:OrderServiceService, public manageLoginService:ManageLoginService, public connectDbService: ConnectDbService,public router:Router) {
     this.price=0;
     this.GSTprice=0;
     this.date= new Date;
@@ -59,6 +60,9 @@ export class CheckoutPageComponent implements OnInit {
     var obj = {totalPrice:this.GSTprice,date:this.date,email:this.manageLoginService.email,firstName:firstName,lastName:lastName,zip:zip,address1:address1,address2:address2,cardNumber:cardNumber,cardName:cardName,cardCVV:cardCVV,orderArray:this.cartArray}
     console.log("checkout",obj);
     this.connectDbService.placeOrderStore(obj).subscribe((data) => {
+      var details = {name:firstName,address1:address1,address2:address2,totalPrice:this.GSTprice};
+      console.log(details);
+      this.orderService.saveOrder(details);
       this.router.navigateByUrl('/successfull');
       }, (err) => {
         console.log(err);
