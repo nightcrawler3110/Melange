@@ -47,7 +47,7 @@
             </select>
             <div class="action">
               <button class="add-to-cart btn btn-default mt-4" type="submit" (click)="addToBagEventHandler(product.id,product.name,product.price,product.image,product.type)"> add to cart</button>
-              <button class="like btn btn-default mt-4" type="button"><span class="fa fa-heart"></span></button>
+              <button class="like btn btn-default mt-4"  (click)="wishlistEventHandler(product.id,product.name,product.price,product.image,product.type,product.imagea,product.imageb,product.imagec,product.description)" type="button"><span class="fa fa-heart"></span></button>
             </div>
           </div>
         </div>

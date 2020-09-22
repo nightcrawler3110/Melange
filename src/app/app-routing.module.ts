@@ -30,6 +30,7 @@ const routes: Routes = [
   {path:"accessories",component:AccessoriesPageComponent},
   {path: "offers", component:OffersPageComponent},
   {path: "wishlist", component:WishlistPageComponent},
+  {path: "wishlistQ", component:WishlistPageComponent},
   {path:"cart",component:CartPageComponent},
   {path: "cartQ",component:CartPageComponent},
   {path: "successfull",component:SuccessfulCheckoutPageComponent},

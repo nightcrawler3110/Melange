@@ -1,6 +1,13 @@
-<div class="container bootdey">
+<div *ngIf="ordersArray.length>0; then ifTemplate; else elseTemplate"></div>
+<ng-template #elseTemplate>
+    <div style="height: 300px;margin-top: 150px; margin-left:80px;">
+        <h2>No orders Placed Yet</h2>
+    </div>
+</ng-template>
+<ng-template #ifTemplate>
+<div class="container bootdey" style="min-height: 400px;">
     <div class="panel panel-default panel-order">
-        <div class="panel-heading text-center" >
+        <div class="panel-heading text-center">
             <strong style=" font-size: 50px;">Order history</strong>
         </div>
 
@@ -24,3 +31,7 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>    
+</ng-template>

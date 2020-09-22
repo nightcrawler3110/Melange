@@ -4,13 +4,19 @@
     <div class="row">
       <div class="col-md-8 mb-4">
         <div class="card">
-          <form class="card-body">
+          <form class="card-body" [formGroup]="checkoutForm">
             <div class="row">
               <div class="col-md-6 mb-2">
-                <div class="md-form ">
-                  <input type="text" id="firstName" #firstName class="form-control">
+                <div class="md-form">
+                  <input type="text" id="firstName" #firstName class="form-control" formControlName="name">
                   <label for="firstName" class="">First name</label>
+                  <div
+                    *ngIf="checkoutForm.get('name').errors?.required && (!checkoutForm.get('name').pristine||checkoutForm.get('name').touched)"
+                    style="color: red;">
+                    <h6 style="margin-top:0px; padding-top:0px;"> Required</h6>
+                  </div>
                 </div>
+
               </div>
               <div class="col-md-6 mb-2">
                 <div class="md-form">
@@ -20,8 +26,14 @@
               </div>
             </div>
             <div class="md-form mb-1">
-              <input type="text" id="address" #address1 class="form-control" placeholder="1234 Main St">
+              <input type="text" id="address" formControlName="address" #address1 class="form-control"
+                placeholder="1234 Main St">
               <label for="address" class="">Address</label>
+              <div
+                *ngIf="checkoutForm.get('address').errors?.required && (!checkoutForm.get('address').pristine||checkoutForm.get('address').touched)"
+                style="color: red; padding-top:1px; margin-top:0px ;">
+                <h6 style="margin-top:0px; padding-top:0px;"> Required</h6>
+              </div>
             </div>
             <div class="md-form mb-1">
               <input type="text" id="address-2" #address2 class="form-control" placeholder="Apartment or suite">
@@ -44,51 +56,91 @@
               </div>
               <div class="col-lg-4 col-md-6 mb-4">
                 <label for="zip">Zip</label>
-                <input type="text" class="form-control" #zip id="zip" placeholder="" required>
+                <input formControlName="zip" type="text" class="form-control" #zip id="zip" placeholder="" required>
+                <div
+                  *ngIf="checkoutForm.get('zip').errors?.required &&  (!checkoutForm.get('zip').pristine||checkoutForm.get('zip').touched)"
+                  style="color: red; padding-top:1px; margin-top:0px ;">
+                  <h6 style="margin-top:0px; padding-top:0px;"> Required</h6>
+                </div>
+                <div
+                  *ngIf="checkoutForm.get('zip').errors?.pattern && (!checkoutForm.get('zip').pristine||checkoutForm.get('zip').touched)"
+                  style="color: red; padding-top:1px; margin-top:0px ;">
+                  <h6 style="margin-top:0px; padding-top:0px;"> Invalid</h6>
+                </div>
               </div>
             </div>
             <hr>
-            <div class="d-block my-3" >
+            <div class="d-block my-3">
               <div class="custom-control custom-radio">
-                <input id="credit" value="Credit card"  name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                <input id="credit" value="Credit card" name="paymentMethod" type="radio" class="custom-control-input"
+                  checked required>
                 <label class="custom-control-label" for="credit">Credit card</label>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="cc-name">Name on card</label>
-                <input type="text" #cardName class="form-control" id="cc-name" placeholder="" required>
+                <input type="text" #cardName formControlName="cardName" class="form-control" id="cc-name" placeholder=""
+                  required>
                 <small class="text-muted">Full name as displayed on card</small>
-                <div class="invalid-feedback">
-                  Name on card is required
+                <div
+                  *ngIf="checkoutForm.get('cardName').errors?.required &&  (!checkoutForm.get('cardName').pristine||checkoutForm.get('cardName').touched)"
+                  style="color: red; padding-top:1px; margin-top:0px ;">
+                  <h6 style="margin-top:0px; padding-top:0px;"> Required</h6>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="cc-number">Credit card number</label>
-                <input type="text" #cardNumber class="form-control" id="cc-number" placeholder="" required>
-                <div class="invalid-feedback">
-                  Credit card number is required
+                <input type="text" #cardNumber class="form-control" formControlName="number" id="cc-number"
+                  placeholder="" required>
+                <div
+                  *ngIf="checkoutForm.get('number').errors?.required &&  (!checkoutForm.get('number').pristine||checkoutForm.get('number').touched)"
+                  style="color: red; padding-top:1px; margin-top:0px ;">
+                  <h6 style="margin-top:0px; padding-top:0px;"> Required</h6>
+                </div>
+                <div
+                  *ngIf="checkoutForm.get('number').errors?.pattern && (!checkoutForm.get('number').pristine||checkoutForm.get('number').touched)"
+                  style="color: red; padding-top:1px; margin-top:0px ;">
+                  <h6 style="margin-top:0px; padding-top:0px;"> Invalid</h6>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-3 mb-3">
-                <label for="cc-expiration" >Expiration</label>
-                <input type="text" class="form-control" #cardExpiration id="cc-expiration" placeholder="" required>
-                <div class="invalid-feedback">
-                  Expiration date required
+                <label for="cc-expiration">Expiration</label>
+                <input type="text" class="form-control" formControlName="date" #cardExpiration id="cc-expiration"
+                  placeholder="" required>
+                <div
+                  *ngIf="checkoutForm.get('date').errors?.required &&  (!checkoutForm.get('date').pristine||checkoutForm.get('date').touched)"
+                  style="color: red; padding-top:1px; margin-top:0px ;">
+                  <h6 style="margin-top:0px; padding-top:0px;"> Required</h6>
+                </div>
+                <div
+                  *ngIf="checkoutForm.get('date').errors?.pattern && (!checkoutForm.get('date').pristine||checkoutForm.get('date').touched)"
+                  style="color: red; padding-top:1px; margin-top:0px ;">
+                  <h6 style="margin-top:0px; padding-top:0px;"> Invalid</h6>
                 </div>
               </div>
               <div class="col-md-3 mb-3">
                 <label for="cc-expiration">CVV</label>
-                <input type="text" #cardCVV class="form-control" id="cc-cvv" placeholder="" required>
-                <div class="invalid-feedback">
-                  Security code required
+                <input type="password" formControlName="CVV" #cardCVV class="form-control" id="cc-cvv" placeholder=""
+                  required>
+                <div
+                  *ngIf="checkoutForm.get('CVV').errors?.required &&  (!checkoutForm.get('CVV').pristine||checkoutForm.get('CVV').touched)"
+                  style="color: red; padding-top:1px; margin-top:0px ;">
+                  <h6 style="margin-top:0px; padding-top:0px;"> Required</h6>
+                </div>
+                <div
+                  *ngIf="checkoutForm.get('CVV').errors?.pattern && (!checkoutForm.get('CVV').pristine||checkoutForm.get('CVV').touched)"
+                  style="color: red; padding-top:1px; margin-top:0px ;">
+                  <h6 style="margin-top:0px; padding-top:0px;"> Invalid</h6>
                 </div>
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="checkoutEventHandler(firstName.value,lastName.value,zip.value,address1.value,address2.value,cardNumber.value,cardName.value,cardCVV.value)">Continue to checkout</button>
+            <button class="btn btn-primary btn-lg btn-block" [disabled]="!checkoutForm.valid" type="submit"
+              (click)="checkoutEventHandler(firstName.value,lastName.value,zip.value,address1.value,address2.value,cardNumber.value,cardName.value,cardCVV.value)">Continue
+              to checkout</button>
           </form>
         </div>
       </div>

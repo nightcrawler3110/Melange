@@ -50,5 +50,10 @@ export class AppComponent {
       this.router.navigateByUrl('/orders')
     }
   }
+  logoutEventHandler()
+  {
+    this.manageLoginService.saveEmail("");
+    this.router.navigateByUrl('/home')
+  }
 
 }

@@ -9,13 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./successful-checkout-page.component.css']
 })
 export class SuccessfulCheckoutPageComponent implements OnInit {
-
-  constructor(public router:Router, public connectDbService:ConnectDbService, public manageLoginService:ManageLoginService) { }
+   date:Date;
+  constructor(public router:Router, public connectDbService:ConnectDbService, public manageLoginService:ManageLoginService) {
+    this.date = new Date;
+    this.date.setDate(this.date.getDate() + 7)
+   }
 
   ngOnInit(): void {
     var obj = {email:this.manageLoginService.email}
     this.connectDbService.destroyCart(obj).subscribe((data) => {
       console.log("Done Deletion")
+      
       }, (err) => {
         console.log(err);
       })

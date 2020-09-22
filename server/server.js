@@ -14,6 +14,9 @@ var deleteFromCartRoute = require("./routes/deleteFromCartRoute");
 var orderRoute = require("./routes/orderRoute");
 var destroyCompleteCartRoute = require("./routes/destroyCompleteCartRoute")
 var displayOrderRoute = require("./routes/displayOrderRoute");
+var wishlistRoute= require("./routes/wishlistRoute")
+var displayWishListRoute= require("./routes/displayWishlistRoute");
+var deleteFromWishlistRoute = require("./routes/deleteFromWishlistRoute")
 var app=express();
 var PORT =3000;
  
@@ -32,6 +35,9 @@ app.use("/api/delete",deleteFromCartRoute);
 app.use("/api/order",orderRoute);
 app.use("/api/destroy",destroyCompleteCartRoute);
 app.use("/api/displayOrder",displayOrderRoute);
+app.use("/api/wishlist",wishlistRoute);
+app.use("/api/displayWishlist",displayWishListRoute)
+app.use("/api/deleteFromWishlist",deleteFromWishlistRoute)
 
 app.listen(PORT,(err)=>{
     if(!err)

@@ -11,10 +11,10 @@ import { Products } from './../products';
 })
 export class MenPageComponent implements OnInit {
   productsArray: Products[] = new Array();
-  constructor(public manageProductDisplayService:ManageProductDisplayService, public connectDbService:ConnectDbService,public router:Router,public manageLoginService:ManageLoginService) { }
+  constructor(public manageProductDisplayService: ManageProductDisplayService, public connectDbService: ConnectDbService, public router: Router, public manageLoginService: ManageLoginService) { }
 
   ngOnInit(): void {
-    var obj ={ type:"men"};
+    var obj = { type: "men" };
     this.connectDbService.getAllProducts(obj).subscribe((data) => {
       console.log(data);
       this.productsArray = data as Products[];
@@ -23,9 +23,25 @@ export class MenPageComponent implements OnInit {
       console.log(err);
     })
   }
-  openDisplayEventHandler(product)
-  {
+  openDisplayEventHandler(product) {
     this.manageProductDisplayService.changeProductDisplay(product);
     this.router.navigateByUrl('/display')
+  }
+  wishlistEventHandler(product) {
+    if (this.manageLoginService.email == "") {
+      this.router.navigateByUrl('/login');
+    }
+    else {
+      var obj = {
+        email: this.manageLoginService.email, description: product.description, imagea: product.imagea, imageb: product.imageb, imagec: product.imagec, type: product.type,
+        id: product.id, name: product.name, image: product.image, price: product.price
+      }
+      this.connectDbService.addToWishlist(obj).subscribe((data) => {
+        console.log("succesfully added to wishlist");
+        alert("Successfully Added to wishlist")
+      }, (err) => {
+        console.log(err);
+      })
+    }
   }
 }

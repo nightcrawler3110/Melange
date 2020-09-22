@@ -53,5 +53,19 @@ export class DisplayPageComponent implements OnInit {
 
     }
   }
+  wishlistEventHandler(id,name,price,image,type,imagea,imageb,imagec,description) {
+    if (this.manageLoginService.email == "") {
+      this.router.navigateByUrl('/login');
+    }
+    else {
+      var obj = { email: this.manageLoginService.email, id:id, name: name, image: image, price: price,imagea:imagea,imageb:imageb,imagec:imagec,description:description }
+      this.connectDbService.addToWishlist(obj).subscribe((data) => {
+        console.log("succesfully added to wishlist");
+        alert("Successfully Added to wishlist")
+      }, (err) => {
+        console.log(err);
+      })
+    }
+  }
 
 }
