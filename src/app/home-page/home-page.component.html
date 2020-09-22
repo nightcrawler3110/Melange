@@ -83,22 +83,24 @@
     <h3 class="mt-4">Trending in Indian Wear</h3>
 
     <div class="row">
-        <div class="card-deck mt-4">
+        <div class="card-deck mt-4 ">
             <div *ngFor="let product of productsArray">
-                <div *ngIf="product.type== 'Trending in Indian Wear'">
-                    <div class=" col-md-12 col-sm-12">
-                        <div class="card border border-9 border-dark" style="background-color: rgb(238, 127, 149)">
-                            <img class="card-img-top img-fluid border border-3 border-dark" src={{product.image}}
-                                alt="Card image cap" style="height: 180px;">
-                            <div class="card-body">
-                                <p class="card-title ml-4"><span style="font-weight: bold;">{{product.name}}</span> Rs
-                                    {{product.price}}/-</p>
-                                <p> <a
-                                        (click)="addToBagEventHandler(product.id,product.image,product.name,product.type,product.price)"><span
-                                            class="fa fa-shopping-bag ml-5"></span></a><span class="fa fa-heart ml-5"
-                                        style="color: red;"></span></p>
-                            </div>
+                <div *ngIf = "product.type =='Trending in Indian Wear'">
+                <div class=" col-md-12 col-sm-12 mb-4">
+                    <div class="card border border-9 border-dark"
+                        style="background-color: rgb(101, 191, 197); height: 290px; width:220px">
+                        <img class="card-img-top img-fluid border border-3 border-dark"
+                            (click)="openDisplayEventHandler(product)" src={{product.image}} alt="Card image cap"
+                            style="height: 180px;">
+                        <div class="card-body ml-5">
+                            <h6 class="card-title"><span style="font-weight: bold;">{{product.name}}</span></h6>
+                            <h6> Rs {{product.price}}/-</h6>
+                            <a (click)="wishlistEventHandler(product)">
+                                <p class="text-light"> <span class="fa fa-heart " style="color: red;"> </span> Wishlist
+                                </p>
+                            </a>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -106,51 +108,54 @@
     </div>
 
     <h3 class="mt-4">Trending in Western Wear</h3>
-
     <div class="row">
-        <div class="card-deck mt-4">
+        <div class="card-deck mt-4 ">
             <div *ngFor="let product of productsArray">
-                <div *ngIf="product.type== 'Trending in Western Wear'">
-                    <div class=" col-md-12 col-sm-12">
-                        <div class="card border border-9 border-dark" style="background-color: rgb(0,250,154)">
-                            <img class="card-img-top img-fluid border border-3 border-dark" src={{product.image}}
-                                alt="Card image cap" style="height: 180px;">
-                            <div class="card-body">
-                                <p class="card-title ml-4"><span style="font-weight: bold;">{{product.name}}</span> Rs
-                                    {{product.price}}/-</p>
-                                <p> <a
-                                        (click)="addToBagEventHandler(product.id,product.image,product.name,product.type,product.price)"><span
-                                            class="fa fa-shopping-bag ml-5"></span></a><span class="fa fa-heart ml-5"
-                                        style="color: red;"></span></p>
-                            </div>
+                <div *ngIf = "product.type =='Trending in Western Wear'">
+                <div class=" col-md-12 col-sm-12 mb-4">
+                    <div class="card border border-9 border-dark"
+                        style="background-color: rgb(86, 202, 86); height: 290px; width:220px">
+                        <img class="card-img-top img-fluid border border-3 border-dark"
+                            (click)="openDisplayEventHandler(product)" src={{product.image}} alt="Card image cap"
+                            style="height: 180px;">
+                        <div class="card-body ml-5">
+                            <h6 class="card-title"><span style="font-weight: bold;">{{product.name}}</span></h6>
+                            <h6> Rs {{product.price}}/-</h6>
+                            <a (click)="wishlistEventHandler(product)">
+                                <p class="text-light"> <span class="fa fa-heart " style="color: red;"> </span> Wishlist
+                                </p>
+                            </a>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <h3 class="mt-4">Trending in Footear</h3>
+    <h3 class="mt-4">Trending in Footwear</h3>
 
     <div class="row">
-        <div class="card-deck mt-4">
+        <div class="card-deck mt-4 ">
             <div *ngFor="let product of productsArray">
-                <div *ngIf="product.type== 'Trending in Footwear'">
-                    <div class=" col-md-12 col-sm-12">
-                        <div class="card border border-9 border-dark" style="background-color: rgb(170, 212, 240)">
-                            <img class="card-img-top img-fluid border border-3 border-dark" src={{product.image}}
-                                alt="Card image cap" style="height: 180px;">
-                            <div class="card-body">
-                                <p class="card-title ml-4"><span style="font-weight: bold;">{{product.name}}</span> Rs
-                                    {{product.price}}/-</p>
-                                <p> <a
-                                        (click)="addToBagEventHandler(product.id,product.image,product.name,product.type,product.price)"><span
-                                            class="fa fa-shopping-bag ml-5"></span></a><span class="fa fa-heart ml-5"
-                                        style="color: red;"></span></p>
-                            </div>
+                <div *ngIf = "product.type =='Trending in Footwear'">
+                <div class=" col-md-12 col-sm-12 mb-4">
+                    <div class="card border border-9 border-dark"
+                        style="background-color: rgb(199, 212, 82); height: 290px; width:220px">
+                        <img class="card-img-top img-fluid border border-3 border-dark"
+                            (click)="openDisplayEventHandler(product)" src={{product.image}} alt="Card image cap"
+                            style="height: 180px;">
+                        <div class="card-body ml-5">
+                            <h6 class="card-title"><span style="font-weight: bold;">{{product.name}}</span></h6>
+                            <h6> Rs {{product.price}}/-</h6>
+                            <a (click)="wishlistEventHandler(product)">
+                                <p class="text-light"> <span class="fa fa-heart " style="color: red;"> </span> Wishlist
+                                </p>
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>

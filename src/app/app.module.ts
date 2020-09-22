@@ -26,6 +26,7 @@ import { AccessoriesPageComponent } from './accessories-page/accessories-page.co
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { OrderHistoryPageComponent } from './order-history-page/order-history-page.component';
 import { SuccessfulCheckoutPageComponent } from './successful-checkout-page/successful-checkout-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SuccessfulCheckoutPageComponent } from './successful-checkout-page/succ
     AccessoriesPageComponent,
     CheckoutPageComponent,
     OrderHistoryPageComponent,
-    SuccessfulCheckoutPageComponent
+    SuccessfulCheckoutPageComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,

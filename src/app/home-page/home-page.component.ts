@@ -1,8 +1,9 @@
-import { Router } from '@angular/router';
+import { ManageProductDisplayService } from './../manage-product-display.service';
 import { ManageLoginService } from './../manage-login.service';
-import { Products } from './../products';
+import { Router } from '@angular/router';
 import { ConnectDbService } from './../connect-db.service';
 import { Component, OnInit } from '@angular/core';
+import { Products } from './../products';
 
 @Component({
   selector: 'app-home-page',
@@ -11,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
   productsArray: Products[] = new Array();
-  constructor(public connectDbService: ConnectDbService, public manageLoginService: ManageLoginService, public router: Router) { }
+  constructor( public manageProductDisplayService:ManageProductDisplayService, public connectDbService: ConnectDbService, public manageLoginService: ManageLoginService, public router: Router) { }
 
   ngOnInit(): void {
 
@@ -23,30 +24,29 @@ export class HomePageComponent implements OnInit {
       console.log(err);
     })
   }
-  addToBagEventHandler(id, image, name, type, price) {
+  openDisplayEventHandler(product) {
+    this.manageProductDisplayService.changeProductDisplay(product);
+    this.router.navigateByUrl('/display')
+  }
+  wishlistEventHandler(product) {
     if (this.manageLoginService.email == "") {
       this.router.navigateByUrl('/login');
     }
     else {
-      var cart = { email: this.manageLoginService.email, id: id, name: name, type: type, price: price, image:image }
-      console.log(cart);
-      this.connectDbService.doCartAddition(cart).subscribe((data) => {
-
-        console.log(data);
-        var tempObj: any = data["message"]
-
-        if (tempObj == true) {
-          alert("Successfully Added to Cart")
-        }
-
-
+      var obj = {
+        email: this.manageLoginService.email, description: product.description, imagea: product.imagea, imageb: product.imageb, imagec: product.imagec, type: product.type,
+        id: product.id, name: product.name, image: product.image, price: product.price
+      }
+      this.connectDbService.addToWishlist(obj).subscribe((data) => {
+        console.log("succesfully added to wishlist");
+        alert("Successfully Added to wishlist")
       }, (err) => {
         console.log(err);
-      });
-
-
+      })
     }
   }
 }
+
+
 
 

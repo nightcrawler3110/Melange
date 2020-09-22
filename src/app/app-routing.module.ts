@@ -1,3 +1,4 @@
+import { AdminPageComponent } from './admin-page/admin-page.component';
 import { OrderHistoryPageComponent } from './order-history-page/order-history-page.component';
 import { SuccessfulCheckoutPageComponent } from './successful-checkout-page/successful-checkout-page.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path: "successfull",component:SuccessfulCheckoutPageComponent},
   {path: "checkout", component:CheckoutPageComponent},
   {path: "orders", component:OrderHistoryPageComponent},
+  {path: "admin", component:AdminPageComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 

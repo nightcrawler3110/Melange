@@ -1,5 +1,5 @@
 var mongoClient = require("mongodb").MongoClient;
-var mongodbUrl = "mongodb://localhost:27017/";
+var mongodbUrl = "mongodb+srv://shaily3110:rajat1withshaily1@cluster0.hkchv.mongodb.net/slDbMean?retryWrites=true&w=majority";
 function displayOrder(req, res) {
     mongoClient.connect(mongodbUrl, (err, dbHost) => {
         if (err) {
