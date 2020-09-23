@@ -1,3 +1,11 @@
+<div *ngIf="productsArray.length>0; then ifTemplate; else elseTemplate"></div>
+<ng-template #elseTemplate>
+    <div style="height: 300px;margin-top: 150px; margin-left:80px;">
+        <h2>Loading... </h2>
+    </div>
+</ng-template>
+<ng-template #ifTemplate>
+
 <div class="container">
     <div class="row">
         <div class="card-deck mt-4 ">
@@ -22,3 +30,4 @@
         </div>
     </div>
 </div>
+</ng-template>

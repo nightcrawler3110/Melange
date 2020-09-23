@@ -15,7 +15,7 @@ export class OrderHistoryPageComponent implements OnInit {
     var obj ={email:this.manageLoginService.email}
     this.connectDbService.displayOrder(obj).subscribe((data) => {
     this.ordersArray= data;
-    console.log(this.ordersArray);  
+     
       }, (err) => {
         console.log(err);
       })

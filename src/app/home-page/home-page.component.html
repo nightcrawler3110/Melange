@@ -1,3 +1,12 @@
+<div *ngIf="productsArray.length>0; then ifTemplate; else elseTemplate"></div>
+<ng-template #elseTemplate>
+    <div style="height: 300px;margin-top: 150px; margin-left:80px;">
+        <h2>Loading...  </h2>
+    </div>
+</ng-template>
+<ng-template #ifTemplate>
+
+
 <div class="container-fluid">
     <div id="demo" class="carousel slide mt-4 mb-4" data-ride="carousel" style="border: 2px solid black">
 
@@ -167,3 +176,4 @@
     </div>
 
 </div>
+</ng-template>

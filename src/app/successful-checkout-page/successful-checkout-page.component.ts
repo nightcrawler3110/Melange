@@ -20,8 +20,11 @@ export class SuccessfulCheckoutPageComponent implements OnInit {
   ngOnInit(): void {
     var obj = {email:this.manageLoginService.email}
     this.connectDbService.destroyCart(obj).subscribe((data) => {
-      console.log("Done Deletion")
+      var tempObj: any = data["message"]
+      if(tempObj==true)
+      {
       this.order= this.orderService.order;
+      }
       }, (err) => {
         console.log(err);
       })

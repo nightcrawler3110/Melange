@@ -24,10 +24,9 @@ export class LoginPageComponent implements OnInit {
   }
   loginEventHandler() {
     var user = { email: this.loginForm.value.email, password: this.loginForm.value.password }
-    console.log("loginevent")
+     
     this.connectDbService.doUserValidation(user).subscribe((data) => {
-      console.log("validation")
-      console.log(data);
+       
       var tempObj: any = data["message"]
 
       if (tempObj == "user") {

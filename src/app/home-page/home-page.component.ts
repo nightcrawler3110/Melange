@@ -17,9 +17,9 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
 
     this.connectDbService.getAllProductsHome().subscribe((data) => {
-      console.log(data);
+      
       this.productsArray = data as Products[];
-      console.log(this.productsArray[0].image);
+       
     }, (err) => {
       console.log(err);
     })
@@ -38,8 +38,12 @@ export class HomePageComponent implements OnInit {
         id: product.id, name: product.name, image: product.image, price: product.price
       }
       this.connectDbService.addToWishlist(obj).subscribe((data) => {
-        console.log("succesfully added to wishlist");
+        var tempObj: any = data["message"]
+        if(tempObj==true)
+        {
+         
         alert("Successfully Added to wishlist")
+        }
       }, (err) => {
         console.log(err);
       })

@@ -17,7 +17,7 @@ export class WishlistPageComponent implements OnInit {
     var obj = { email: this.manageLoginService.email }
     this.connectDbService.displayWishlist(obj).subscribe((data) => {
       this.wishlistArray = data;
-      console.log(this.wishlistArray);
+       
     }, (err) => {
       console.log(err);
     })
@@ -25,17 +25,21 @@ export class WishlistPageComponent implements OnInit {
   deleteItemEventHandler(obj) {
      
     this.connectDbService.deleteFromWishlist(obj).subscribe((data) => {
+      var tempObj: any = data["message"]
+        if(tempObj==true)
+        {
       if (this.router.url == '/wishlist') {
         this.router.navigateByUrl('/wishlistQ');
       }
       else {
         this.router.navigateByUrl('/wishlist');
       }
-      console.log("done");
+      
+    }
     }, (err) => {
       console.log(err);
     })
-    console.log("item to be deleted", obj);
+     
 }
 openDisplayEventHandler(wishlist)
 {

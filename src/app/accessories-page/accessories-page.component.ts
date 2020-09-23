@@ -18,7 +18,7 @@ export class AccessoriesPageComponent implements OnInit {
   ngOnInit(): void {
     var obj = { type: "accessories" };
     this.connectDbService.getAllProducts(obj).subscribe((data) => {
-      console.log(data);
+       
       this.productsArray = data as Products[];
       console.log(this.productsArray[0].image);
     }, (err) => {
@@ -39,8 +39,11 @@ export class AccessoriesPageComponent implements OnInit {
         id: product.id, name: product.name, image: product.image, price: product.price
       }
       this.connectDbService.addToWishlist(obj).subscribe((data) => {
-        console.log("succesfully added to wishlist");
+        var tempObj: any = data["message"]
+        if(tempObj==true)
+        {
         alert("Successfully Added to wishlist")
+        }
       }, (err) => {
         console.log(err);
       })

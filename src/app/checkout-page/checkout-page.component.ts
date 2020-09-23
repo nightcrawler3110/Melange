@@ -58,12 +58,16 @@ export class CheckoutPageComponent implements OnInit {
   checkoutEventHandler(firstName,lastName,zip,address1,address2,cardNumber,cardName,cardCVV)
   {
     var obj = {totalPrice:this.GSTprice,date:this.date,email:this.manageLoginService.email,firstName:firstName,lastName:lastName,zip:zip,address1:address1,address2:address2,cardNumber:cardNumber,cardName:cardName,cardCVV:cardCVV,orderArray:this.cartArray}
-    console.log("checkout",obj);
+     
     this.connectDbService.placeOrderStore(obj).subscribe((data) => {
+      var tempObj: any = data["message"]
+        if(tempObj==true)
+        {
       var details = {name:firstName,address1:address1,address2:address2,totalPrice:this.GSTprice};
-      console.log(details);
+       
       this.orderService.saveOrder(details);
       this.router.navigateByUrl('/successfull');
+        }
       }, (err) => {
         console.log(err);
       })

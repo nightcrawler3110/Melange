@@ -1,8 +1,7 @@
-var express=require("express");
-var router=express.Router();
-console.log("cartRouteRetrive")
-var cartRetriveController=require("../controllers/cartRetriveController");
+var express = require("express");
+var router = express.Router();
+var cartRetriveController = require("../controllers/cartRetriveController");
 
-router.post("/",cartRetriveController.getProductFromCart);
+router.post("/", cartRetriveController.getProductFromCart);
 
-module.exports=router;
+module.exports = router;

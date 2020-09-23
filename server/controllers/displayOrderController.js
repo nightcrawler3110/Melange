@@ -3,7 +3,7 @@ var mongodbUrl = "mongodb+srv://shaily3110:rajat1withshaily1@cluster0.hkchv.mong
 function displayOrder(req, res) {
     mongoClient.connect(mongodbUrl, (err, dbHost) => {
         if (err) {
-            console.log("error1")
+             
             res.status(500);
             res.json({ message: "Not able to connect to server" })
         }
@@ -11,7 +11,7 @@ function displayOrder(req, res) {
             var db = dbHost.db("slDbMean");
             db.collection("orders", (err, coll) => {
                 if (err) {
-                    console.log("errror2")
+                     
                     res.status(500);
                     res.json({ message: "Not able to connect to connection" })
                 }

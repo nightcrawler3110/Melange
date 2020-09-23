@@ -17,7 +17,7 @@ export class AdminPageComponent implements OnInit {
    var obj ={name:name,id:id,type:type,description:description,price:price,image:image,imagea:imagea,imageb:imageb,imagec:imagec}
    this.connectDbService.addNewProduct(obj).subscribe((data) => {
 
-    console.log(data);
+    
     var tempObj: any = data["message"]
 
     if (tempObj == true) {

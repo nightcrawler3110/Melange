@@ -19,7 +19,7 @@ export class AppComponent {
     }
     else
     {
-      console.log(this.manageLoginService.email)
+       
       this.router.navigateByUrl('/wishlist')
     }
   }
@@ -31,7 +31,7 @@ export class AppComponent {
     }
     else
     {
-      console.log(this.manageLoginService.email)
+      
       this.router.navigateByUrl('/cart')
     }
   }
@@ -64,11 +64,11 @@ export class AppComponent {
     }
     else if(this.manageLoginService.type=="")
     {
-      alert("Admin Login Required")   
+      alert("Admin Login Credentials     Email:shailyjaloree@gmail.com ,     password: admin1234")   
     }
     else
     {
-      console.log(this.manageLoginService.email)
+       
       this.router.navigateByUrl('/admin')
     }
   }
@@ -76,8 +76,11 @@ export class AppComponent {
   {
     var obj = {name:name,email:email,reply:reply}
     this.connectDbService.sendReply(obj).subscribe((data) => {
-      
+      var tempObj: any = data["message"]
+        if(tempObj==true)
+        {
       alert("Successfully Sent The Reply")
+        }
     }, (err) => {
       console.log(err);
     })

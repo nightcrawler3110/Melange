@@ -74,6 +74,9 @@ export class CartPageComponent implements OnInit {
     this.price = this.price - (obj.price*obj.quantity)
     this.GSTprice = this.price*1.18;
     this.connectDbService.deleteFromCart(obj).subscribe((data) => {
+      var tempObj: any = data["message"]
+        if(tempObj==true)
+        {
       if(this.router.url=='/cart')
       {
         this.router.navigateByUrl('/cartQ');
@@ -82,11 +85,12 @@ export class CartPageComponent implements OnInit {
       {
         this.router.navigateByUrl('/cart');
       }
-      console.log("done");
+       
+    }
     }, (err) => {
       console.log(err);
     })
-    console.log("item to be deleted", obj);
+     
     
 
   }

@@ -38,8 +38,12 @@ export class WomenPageComponent implements OnInit {
         id: product.id, name: product.name, image: product.image, price: product.price
       }
       this.connectDbService.addToWishlist(obj).subscribe((data) => {
-        console.log("succesfully added to wishlist");
+        var tempObj: any = data["message"]
+        if(tempObj==true)
+        {
+         
         alert("Successfully Added to wishlist")
+        }
       }, (err) => {
         console.log(err);
       })

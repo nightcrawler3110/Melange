@@ -62,8 +62,12 @@ export class DisplayPageComponent implements OnInit {
     else {
       var obj = { email: this.manageLoginService.email, id:id, name: name, image: image, price: price,imagea:imagea,imageb:imageb,imagec:imagec,description:description }
       this.connectDbService.addToWishlist(obj).subscribe((data) => {
-        console.log("succesfully added to wishlist");
+        var tempObj: any = data["message"]
+        if(tempObj==true)
+        {
+         
         alert("Successfully Added to wishlist")
+        }
       }, (err) => {
         console.log(err);
       })
