@@ -1,9 +1,12 @@
+import { stringify } from '@angular/compiler/src/util';
 import { ManageLoginService } from './../manage-login.service';
 import { ConnectDbService } from './../connect-db.service';
 import { CustonFormValidations } from './../custon-form-validations.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {Md5} from 'ts-md5/dist/md5';
+
  
 @Component({
   selector: 'app-login-page',
@@ -23,7 +26,7 @@ export class LoginPageComponent implements OnInit {
     });
   }
   loginEventHandler() {
-    var user = { email: this.loginForm.value.email, password: this.loginForm.value.password }
+    var user = { email: this.loginForm.value.email, password: stringify(Md5.hashStr(this.loginForm.value.password))}
      
     this.connectDbService.doUserValidation(user).subscribe((data) => {
        

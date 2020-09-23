@@ -1,8 +1,12 @@
+import { stringify } from '@angular/compiler/src/util';
 import { ConnectDbService } from './../connect-db.service';
 import { CustonFormValidations } from './../custon-form-validations.service';
 import { Router, RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Md5} from 'ts-md5/dist/md5';
+
+ 
  
 
 @Component({
@@ -80,7 +84,8 @@ export class SignUpPageComponent implements OnInit {
     this.passwordType = 'weak';
   }
   signUpEventHandler() {
-    var user = { email: this.signUpForm.value.email, password: this.signUpForm.value.password, name:this.signUpForm.value.name }
+     
+    var user = { email: this.signUpForm.value.email, password: stringify(Md5.hashStr(this.signUpForm.value.password)) , name:this.signUpForm.value.name }
     console.log("signUpevent")
     this.connectDbService.doRegisterUser(user).subscribe((data) => {
       console.log("validation")
