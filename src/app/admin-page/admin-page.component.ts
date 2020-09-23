@@ -14,7 +14,8 @@ export class AdminPageComponent implements OnInit {
   }
   addNewProductEventHandler(name,id,type,description,price,image,imagea,imageb,imagec)
 {
-   var obj ={name:name,id:id,type:type,description:description,price:price,image:image,imagea:imagea,imageb:imageb,imagec:imagec}
+  var priceI = parseInt(price);
+   var obj ={name:name,id:id,type:type,description:description,price:priceI,image:image,imagea:imagea,imageb:imageb,imagec:imagec}
    this.connectDbService.addNewProduct(obj).subscribe((data) => {
 
     

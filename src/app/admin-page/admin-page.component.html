@@ -5,8 +5,13 @@
             <input type="text" #name class="form-control" id="name">
         </div>
         <div class="form-group col-md-6">
-            <label for="type">Type</label>
-            <input type="text" #type class="form-control" id="type">
+            <label for="type">Type</label> <br>
+            <select id="type" #type name="cars" class="mt-2">
+                <option value="men">men</option>
+                <option value="women">women</option>
+                <option value="kids">kids</option>
+                <option value="accessories">accessories</option>
+              </select>
         </div>
         <div class="form-group col-md-6">
             <label for="Description">Description</label>
