@@ -32,53 +32,7 @@
 </div>
 <div class="container">
 
-    <h3>Deals of The Day</h3>
-    <div class="row">
-        <div class="card-deck mt-4">
-            <div class=" col-md-3 col-sm-12">
-                <div class="card border border-9 border-dark" style="background-color: rgb(0,250,154)">
-                    <img class="card-img-top img-fluid border border-3 border-dark" src="../../assets/deal1.JPG"
-                        alt="Card image cap" style="height: 180px;">
-                    <div class="card-body">
-                        <h5 class="card-title">Gift With Purchase</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-12">
-                <div class="card border border-9 border-dark" style=" background-color:rgb(216,191,216) ">
-                    <img class="card-img-top img-fluid border border-3 border-dark" src="../../assets/deal2.JPG"
-                        alt="Card image cap" style="height: 180px;">
-                    <div class="card-body">
-                        <h5 class="card-title">Buy 1 Get 1</h5>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-12">
-                <div class="card border border-9 border-dark" style=" background-color:   rgb(244,164,96)">
-                    <img class="card-img-top img-fluid border border-3 border-dark" src="../../assets/deal3.JPG"
-                        alt="Card image cap" style="height: 180px;">
-                    <div class="card-body">
-                        <h5 class="card-title">Min 30% off</h5>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class=" col-md-3 col-sm-12">
-                <div class="card border border-9 border-dark" style="background-color: rgb(205,92,92)">
-                    <img class="card-img-top img-fluid border border-3 border-dark" src="../../assets/deal4.JPG"
-                        alt="Card image cap" style="height: 180px;">
-                    <div class="card-body">
-                        <h5 class="card-title">All under 499</h5>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    
 
     <h3 class="mt-4">Trending in Indian Wear</h3>
 
@@ -88,7 +42,7 @@
                 <div *ngIf = "product.type =='Trending in Indian Wear'">
                 <div class=" col-md-12 col-sm-12 mb-4">
                     <div class="card border border-9 border-dark"
-                        style="background-color: rgb(101, 191, 197); height: 290px; width:220px">
+                        style="background-color: rgb(146, 101, 197); height: 290px; width:220px">
                         <img class="card-img-top img-fluid border border-3 border-dark"
                             (click)="openDisplayEventHandler(product)" src={{product.image}} alt="Card image cap"
                             style="height: 180px;">
@@ -159,4 +113,57 @@
             </div>
         </div>
     </div>
+    <h3 class="mt-4">Trending in Kids Wear</h3>
+
+    <div class="row">
+        <div class="card-deck mt-4 ">
+            <div *ngFor="let product of productsArray">
+                <div *ngIf = "product.type =='Trending in Kids Wear'">
+                <div class=" col-md-12 col-sm-12 mb-4">
+                    <div class="card border border-9 border-dark"
+                        style="background-color: rgb(101, 191, 197); height: 290px; width:220px">
+                        <img class="card-img-top img-fluid border border-3 border-dark"
+                            (click)="openDisplayEventHandler(product)" src={{product.image}} alt="Card image cap"
+                            style="height: 180px;">
+                        <div class="card-body ml-5">
+                            <h6 class="card-title"><span style="font-weight: bold;">{{product.name}}</span></h6>
+                            <h6> Rs {{product.price}}/-</h6>
+                            <a (click)="wishlistEventHandler(product)">
+                                <p class="text-light"> <span class="fa fa-heart " style="color: red;"> </span> Wishlist
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 class="mt-4">Trending in Accessories</h3>
+
+    <div class="row">
+        <div class="card-deck mt-4 ">
+            <div *ngFor="let product of productsArray">
+                <div *ngIf = "product.type =='Trending in accessories'">
+                <div class=" col-md-12 col-sm-12 mb-4">
+                    <div class="card border border-9 border-dark"
+                        style="background-color: rgb(12, 97, 44); height: 290px; width:220px">
+                        <img class="card-img-top img-fluid border border-3 border-dark"
+                            (click)="openDisplayEventHandler(product)" src={{product.image}} alt="Card image cap"
+                            style="height: 180px;">
+                        <div class="card-body ml-5">
+                            <h6 class="card-title"><span style="font-weight: bold;">{{product.name}}</span></h6>
+                            <h6> Rs {{product.price}}/-</h6>
+                            <a (click)="wishlistEventHandler(product)">
+                                <p class="text-light"> <span class="fa fa-heart " style="color: red;"> </span> Wishlist
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

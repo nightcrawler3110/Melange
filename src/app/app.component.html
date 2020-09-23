@@ -43,7 +43,7 @@
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link ml-5" routerLink="/offers">Offers<span class="sr-only">(current)</span></a>
+            <a class="nav-link ml-5" (click)="ordersEventHandler()">Orders<span class="sr-only">(current)</span></a>
           </li>
 
           <li class="nav-item avatar d-none d-lg-block ml-5" id="Wishlist">
@@ -172,17 +172,17 @@
       <div class="col-sm-12 col-md-4 bg-dark mt-2 mb-2 pr-4">
         <form action="/action_page.php" style="background-color: rgba(0,250,154,0.2) ; border: 1px solid black">
           <div class="form-group mt-4 ml-4 mr-4">
-            <input type="name" class="form-control" id="name" placeholder="Enter Name" name="name">
+            <input type="name" class="form-control" #name id="name" placeholder="Enter Name" name="name">
           </div>
           <div class="form-group mt-4 ml-4 mr-4">
 
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            <input type="email" class="form-control" #email id="email" placeholder="Enter email" name="email">
           </div>
           <div class="form-group ml-4 mr-4">
-            <input type="textarea" class="form-control" id="reply" placeholder="Leave a Reply" name="reply">
+            <input type="textarea" class="form-control" #reply id="reply" placeholder="Leave a Reply" name="reply">
           </div>
           <button type="submit" class="btn ml-4 mb-3"
-            style="background-color: rgb(205,92,92) ; border: 1px solid black">Send</button>
+            style="background-color: rgb(205,92,92) ; border: 1px solid  black" (click)="sendReplyEventHandler(name.value,email.value,reply.value)">Send</button>
         </form>
       </div>
     </div>

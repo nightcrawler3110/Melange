@@ -96,4 +96,10 @@ export class ConnectDbService {
     var myServerUrl =this.myBaseServerUrl+"/api/deleteProduct";
     return this.httpClient.post(myServerUrl,obj);
   }
+  sendReply(obj)
+  {
+     
+    var myServerUrl =this.myBaseServerUrl+"/api/sendReply";
+    return this.httpClient.post(myServerUrl,obj);
+  }
 }

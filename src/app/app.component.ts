@@ -1,3 +1,4 @@
+import { ConnectDbService } from './connect-db.service';
 import { Router } from '@angular/router';
 import { ManageLoginService } from './manage-login.service';
 import { Component } from '@angular/core';
@@ -9,7 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'melange';
-  constructor(public manageLoginService :ManageLoginService,public router:Router) {}
+  constructor(public connectDbService:ConnectDbService ,public manageLoginService :ManageLoginService,public router:Router) {}
   wishlistEventHandler()
   {
     if(this.manageLoginService.email=="")
@@ -63,7 +64,7 @@ export class AppComponent {
     }
     else if(this.manageLoginService.type=="")
     {
-          
+      alert("Admin Login Required")   
     }
     else
     {
@@ -71,5 +72,15 @@ export class AppComponent {
       this.router.navigateByUrl('/admin')
     }
   }
+  sendReplyEventHandler(name,email,reply)
+  {
+    var obj = {name:name,email:email,reply:reply}
+    this.connectDbService.sendReply(obj).subscribe((data) => {
+      
+      alert("Successfully Sent The Reply")
+    }, (err) => {
+      console.log(err);
+    })
+  }
+  }
 
-}

@@ -19,6 +19,7 @@ var displayWishListRoute= require("./routes/displayWishlistRoute");
 var deleteFromWishlistRoute = require("./routes/deleteFromWishlistRoute")
 var addNewProductRoute = require("./routes/addNewProductRoute");
 var deleteProductRoute =require("./routes/deleteProductRoute");
+var sendReplyRoute = require("./routes/sendReplyRoute")
 var app=express();
 var PORT =3000;
  
@@ -42,6 +43,7 @@ app.use("/api/displayWishlist",displayWishListRoute)
 app.use("/api/deleteFromWishlist",deleteFromWishlistRoute)
 app.use("/api/newProduct",addNewProductRoute)
 app.use("/api/deleteProduct",deleteProductRoute)
+app.use("/api/sendReply",sendReplyRoute)
 
 app.listen(PORT,(err)=>{
     if(!err)
