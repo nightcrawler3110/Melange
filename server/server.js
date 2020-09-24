@@ -23,7 +23,7 @@ var sendReplyRoute = require("./routes/sendReplyRoute")
 var app=express();
 var PORT =3000;
  
-
+app.use(express.static(path.join(__dirname, "public", "dist","melange")))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(cors());
