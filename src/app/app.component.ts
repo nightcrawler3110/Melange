@@ -64,7 +64,7 @@ export class AppComponent {
     }
     else if(this.manageLoginService.type=="")
     {
-      alert("Admin Login Credentials     Email:shailyjaloree@gmail.com ,     password: admin1234")   
+      alert("Do Admin Login");   
     }
     else
     {

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "melange"
+    }
+  },
+  "defaultProject": "melange",
+  "cli": {
+    "analytics": "7a7c07c7-b308-4f82-b72a-6768c3067939"
+  }
 }
